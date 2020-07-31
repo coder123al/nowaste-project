@@ -101,3 +101,39 @@ body{
   .first-image{
       height:30vw;
   }
+
+  footer{
+      background-color: #363333;
+      display:flex;
+      justify-content: space-around;
+      align-items: center;
+      height:15vh;
+      width:100%;
+      color:white;
+  }
+
+  #footer-text a{
+      font-size:20px;
+      text-decoration: none;
+      color:white;
+      cursor: pointer;
+      border-bottom: 1px solid white;
+  }
+
+  .footer-middle-text{
+      color:white;
+      text-align:center;
+      width:40%;
+  }
+
+  .footer-middle-text a{
+    font-size:20px;
+  }
+
+
+.fa {
+    color:white;
+    text-align: center;
+    text-decoration: none;
+    margin-left:10px;
+  }

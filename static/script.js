@@ -12,6 +12,15 @@ function myFunction() {
   }
 }
 
+//back to top
+var btt=document.getElementById("footer-text"),
+    body=document.body,
+    docElem=document.documentElement;
+btt.addEventListener("click", function(event){
+    event.preventDefault();
+    docElem.scrollTop=0;
+});
+
 //fade ins
 var element = $("#first-container-text-container");
 element.hide();
