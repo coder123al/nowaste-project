@@ -62,9 +62,11 @@
 
 .first-analysis-title{
     font-size:7.5vw;
+    opacity:0;
 }
 
 .first-analysis-image{
+    opacity:0;
     margin-top:4vw;
     width:90%;
 }
