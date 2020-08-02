@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nowa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/pictures/favicon.png" type="image/png">
+    {% block css_links%}{% endblock %}
+</head>
+<body>
+    <div class="nav-wraper">
+        <nav id="nav">
+            <div class="logo">
+                <a href="/">nowa.</a>
+                <img src="static/pictures/carrot.png" class="nav-image">
+            </div>
+            <div class="nav-spacer"></div>
+            <ul class="nav-links">
+                <li style="margin-right: 20%;"><a href="/">graphs</a></li>
+                <li style="margin-right: 20%;"><a href="#">about</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+            
+        </nav>
+    </div>
+
+    {%block content%}
+    {% endblock %}
+
+    <footer>
+        <div id="footer-text"><a>nowa</a></div>
+        <div class="footer-middle-text">aut viam inveniam aut faciam</div>
+        <div class="social-media">
+            <a href="https://www.facebook.com/alex.lo.96155" target="_blank" id = "facebook" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/alexlo_1/" target="_blank" id = "facebook" class="fa fa-instagram"></a>
+        </div>
+    </footer>
+</body>
+<script src="static/js/jquery-3.5.1.js"></script>
+<script src="static/js/base.js"></script>
+{% block js_links%}{% endblock %}
+</html>

@@ -1,31 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nowa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="static/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
-    <link rel="icon" href="static/pictures/favicon.png" type="image/png">
-</head>
-<body>
-    <div class="nav-wraper">
-        <nav id="nav">
-            <div class="logo">
-                <a href="/">nowa.</a>
-                <img src="static/pictures/carrot.png" class="nav-image">
-            </div>
-            <div class="nav-spacer"></div>
-            <ul class="nav-links">
-                <li style="margin-right: 20%;"><a href="/">graphs</a></li>
-                <li style="margin-right: 20%;"><a href="#">about</a></li>
-                <li><a href="#">contact</a></li>
-            </ul>
-            
-        </nav>
-    </div>
-
+{% extends "base.html" %}
+{% block css_links%}
+<link rel="stylesheet" href="static/css/style.css">
+{% endblock %}
+{% block content %}
     <div class="first-container">
         <div class="first-container-text-container" id="first-container-text-container">
             <div class="first-container-text">approaching food waste in a fresh and contemporary way</div>
@@ -47,15 +24,8 @@
         </div>
     </div>
 
-    <footer>
-        <div id="footer-text"><a>nowa</a></div>
-        <div class="footer-middle-text">aut viam inveniam aut faciam</div>
-        <div class="social-media">
-            <a href="https://www.facebook.com/alex.lo.96155" target="_blank" id = "facebook" class="fa fa-facebook"></a>
-            <a href="https://www.instagram.com/alexlo_1/" target="_blank" id = "facebook" class="fa fa-instagram"></a>
-        </div>
-    </footer>
-</body>
-<script src="static/jquery-3.5.1.js"></script>
-<script src="static/script.js"></script>
-</html>
+{% endblock %}
+
+{% block js_links%}
+<script src="static/js/script.js"></script>
+{% endblock %}
