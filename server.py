@@ -1,7 +1,10 @@
-from flask import Flask, render_template, dash, dash_html_components as html
+from flask import Flask, render_template
+import dash
+import dash_html_components as html
 import dash_core_components as dcc
 import plotly.express as px
 import pandas as pd
+from sklearn.linear_model import LinearRegression
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
