@@ -82,3 +82,8 @@
 .jquery{
     height:100vh;
 }
+
+iframe{
+    width:100vw;
+    height:900px;
+}
