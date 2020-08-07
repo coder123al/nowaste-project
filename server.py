@@ -2,9 +2,12 @@ from flask import Flask, render_template
 import dash
 import dash_html_components as html
 import dash_core_components as dcc
+import plotly    
 import plotly.express as px
 import pandas as pd
 from sklearn.linear_model import LinearRegression
+from dash.dependencies import Input, Output
+
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -152,21 +155,90 @@ result = result.apply(pd.to_numeric, errors='coerce')
 
 #this results in two NaNs that should not be there, so it needs to be fixed
 result.dropna(inplace=True)
+result.drop(columns=["PercentageHouseholdswithchildrenunder18yearsold"],inplace=True)
 
+#real
+#2014-2017 data
+extraYearData=pd.read_csv("static/csv/2014-2017data.csv")
+extraYearData.dropna(inplace=True)
+extraYearData.drop(columns=["Foodscraps per person"], inplace=True)
+extraYearData.reset_index(inplace = True)
+result=pd.concat([result, extraYearData], sort=False)
+result.drop(columns=["index"],inplace=True)
+result.reset_index(inplace=True)
+result.drop(columns=["index"],inplace=True)
+result = result.apply(pd.to_numeric, errors='coerce')
 
 
 #graph start
-fig = px.scatter(result, x = 'Median Household Income', y = 'Food waste per person in pounds', title='Food scraps per person by diversity',labels={
+fig = px.scatter(result, x = 'Median Household Income', y = 'Food waste per person in pounds', title='Food scraps per person by wealth',labels={
                      "Food waste per person in pounds": "Food waste per person(lbs)",
                  })
 
-dash_app.layout = html.Div(children=[
+fig2 = px.scatter(result, x = 'RacialDiversityIndex', y = 'Food waste per person in pounds', title='Food scraps per person by diversity',labels={
+                     "Food waste per person in pounds": "Food waste per person(lbs)",
+                 })
+fig3 = px.scatter(result, x = 'Householdswithchildrenunder18yearsold', y = 'Food waste per person in pounds', title='Food scraps per households with children under 18',labels={
+                     "Food waste per person in pounds": "Food waste per person(lbs)",
+                 })
+dash_app.layout = html.Div([
 
-    dcc.Graph(
-        id='example-graph',
-        figure=fig
-    )
+
+    html.Div([
+        html.Label(['Choose column:'],style={'font-weight': 'bold', "text-align": "center"}),
+
+        dcc.Dropdown(id='my_dropdown',
+            options=[
+              {'label': 'Households with children under 18 years old', 'value': 'Householdswithchildrenunder18yearsold'},
+              {'label': 'Racial Diversity Index', 'value': 'RacialDiversityIndex'},
+              {'label': 'Population aged 65', 'value': 'Populationaged65'},
+              {'label': 'Population aged 25 with a bachelors degree or higher', 'value': 'Populationaged25withabachelorsdegreeorhigher'},
+              {'label': 'Population aged 25 without high school diploma', 'value': 'Populationaged25withouthighschooldiploma'},
+              {'label': 'Unemployment rate', 'value': 'Unemployment rate'},
+              {'label': 'Percentage Unemployment', 'value': 'PercentageUnemployment'},
+              {'label': 'Poverty Rate', 'value': 'Poverty Rate'},
+              {'label': 'Food waste per person in pounds', 'value': 'Food waste per person in pounds'},
+              {'label': 'Median Household Income', 'value': 'Median Household Income'}
+          ],
+            optionHeight=35,                    
+            value='Householdswithchildrenunder18yearsold',                    #dropdown value selected automatically when page loads
+            disabled=False,                     #disable dropdown value selection
+            multi=False,                        #allow multiple dropdown values to be selected
+            searchable=True,                    #allow user-searching of dropdown values
+            search_value='',                    #remembers the value searched in dropdown
+            placeholder='Please select...',     #gray, default text shown when no option is selected
+            clearable=True,                     #allow user to removes the selected value
+            style={'width':"100%"},             #use dictionary to define CSS styles of your dropdown
+              
+            ),                   
+    
+    html.Br(),
+    html.Div(id='output_data'),
+    html.Br(),     
+    ],className='three columns'),
+
+
+    html.Div([
+        dcc.Graph(id='our_graph')
+    ],className='nine columns'),
 ])
+
+
+@dash_app.callback(
+    Output(component_id='our_graph', component_property='figure'),
+    [Input(component_id='my_dropdown', component_property='value')]
+)
+
+def build_graph(column_chosen):
+    dff=result
+    names=column_chosen
+    fig = px.scatter(dff, x=names, y='Food waste per person in pounds', template="plotly")
+    fig.update_layout(title={'text':names+" in realtion to food waster per person",
+                      'font':{'size':20}})
+    return fig
+
+
+
 
 if(__name__=="__main__"):
     app.run(debug=True)
