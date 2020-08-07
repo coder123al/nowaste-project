@@ -232,8 +232,8 @@ dash_app.layout = html.Div([
 def build_graph(column_chosen):
     dff=result
     names=column_chosen
-    fig = px.scatter(dff, x=names, y='Food waste per person in pounds', template="plotly")
-    fig.update_layout(title={'text':names+" in realtion to food waster per person",
+    fig = px.scatter(dff, x=names, y='Food waste per person in pounds', template="plotly", trendline="ols")
+    fig.update_layout(title={'text':names+" in relation to food waster per person",
                       'font':{'size':20}})
     return fig
 
