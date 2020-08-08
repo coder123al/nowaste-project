@@ -57,7 +57,7 @@
 }
 
 .hr1{
-    margin-top:20px;
+    margin-top:1vw;
 }
 
 .first-analysis-title{
@@ -74,8 +74,9 @@
 }
 
 .first-analysis-text{
-    margin-top:30px;
-    font-size:4vw;
+    margin-top:4vw;
+    font-size:3.5vw;
+    font-family: 'Mulish', sans-serif;
 }
 
 
@@ -98,7 +99,7 @@ iframe{
 
 .text{
     opacity:0;
-    transition: ease-in-out .3s;
+    transition: ease-in-out 1s;
     color:black;
     text-align:center;
     font-size:5vw;
