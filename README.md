@@ -6,4 +6,4 @@
 
 ~Project uses publically accessible opensource datasets to best illustrate waste with NYC through using Plotly. 
 
-~Languages used: HTML, CSS, Python, JavaScript
+~Languages used: HTML, CSS, Python, JavaScript, Jupyter Notebook
