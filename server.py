@@ -16,10 +16,17 @@ app=Flask(__name__)
 @app.route("/")
 @app.route("/index.html")
 def home():
-    return render_template("index.html")
+  return render_template("index.html")
+@app.route("/about.html")
+def about():
+  return render_template("about.html")
+@app.route("/contact.html")
+def contact():
+  return render_template("contact.html")
 
 dash_app = dash.Dash(
    __name__,
+   #external_stylesheets=external_stylesheets,
    server=app,
    routes_pathname_prefix='/dash/'
 )
@@ -182,7 +189,6 @@ fig3 = px.scatter(result, x = 'Householdswithchildrenunder18yearsold', y = 'Food
                      "Food waste per person in pounds": "Food waste per person(lbs)",
                  })
 dash_app.layout = html.Div([
-
 
     html.Div([
         html.Label(['Choose column:'],style={'font-weight': 'bold', "text-align": "center"}),

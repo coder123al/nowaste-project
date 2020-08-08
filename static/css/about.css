@@ -1,0 +1,43 @@
+.body-container{
+    height:100vmin;
+    display:flex;
+    flex-direction:row;
+}
+
+.left-body-container{
+    height:100vmin;
+    width:50vw;
+    margin-left:4vw;
+}
+
+.left-body-align{
+    margin-top:8vmin;
+}
+
+.right-body-continer{
+    float:right;
+    height:100vmin;
+    width:42vw;
+}
+
+.body-picture{
+    margin-top:10vmin;
+    width:42vw;
+}
+
+.body-text-title{
+    font-size: 5vw;
+}
+
+.hr1{
+    margin-top:1vw;
+}
+
+
+.body-text{
+    font-size:2vw;
+    font-family: 'Mulish', sans-serif;
+    margin-top:1vw;
+    text-align:justify;
+    margin-right: 3vw;
+}
