@@ -1,0 +1,54 @@
+.body-content{
+    height:100vmin;
+
+}
+
+.name-aligner{
+    margin-left:7vw;
+    height:100vmin;
+    width:100vw;
+    display:flex;
+    flex-direction: row;
+    margin-top:10vh;
+}
+
+.alexlo{
+    width:26vw;
+    height: 100vmin;
+    margin-right:4vw;
+}
+
+.rutmehta{
+    width:26vw;
+    height: 100vmin;
+    margin-right:4vw;
+}
+
+.alexsimeon{
+    width:26vw;
+    height: 100vmin;
+}
+
+.one-img{
+    width:26vw;
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+
+}
+
+.one-img:hover
+{
+    -webkit-filter: brightness(100%);
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+.one-text{
+    margin-top:1vw;
+}
+
