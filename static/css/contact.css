@@ -31,7 +31,7 @@
 
 .one-img{
     width:26vw;
-    -webkit-filter: brightness(70%);
+    -webkit-filter: brightness(80%);
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
@@ -49,6 +49,21 @@
 }
 
 .one-text{
+    font-size:1.2vw;
     margin-top:1vw;
+    font-family: 'Mulish', sans-serif;
 }
 
+.one-title{
+    margin-top:.5vw;
+    font-weight:bold;
+    font-size:2vw;
+    font-family: 'Mulish', sans-serif;
+}
+
+.one-email{
+    font-family: 'Mulish', sans-serif;
+    margin-top:.5vw;
+    color:grey;
+    font-size:1.2vw;
+}

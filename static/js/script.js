@@ -11,6 +11,16 @@ $(document).ready(function() {
   
     //second fade ins
     $(window).scroll( function(){
+        $('.text').each( function(){
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight()*.75;
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            if( bottom_of_window > bottom_of_element ){
+                $(this).css('opacity', '1');
+            }
+            else{
+                $(this).css('opacity', '0');
+            }
+        });
 
         $('.first-analysis-title').each( function(){
             var bottom_of_element = $(this).offset().top + $(this).outerHeight();

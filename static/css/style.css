@@ -84,6 +84,22 @@
 }
 
 iframe{
+    margin-top:3vw;
     width:100vw;
     height:600px;
+    border:none;
+    padding:none;
+    margin:none;
+}
+
+.graph-title{
+    height:10vmin;
+}
+
+.text{
+    opacity:0;
+    transition: ease-in-out .3s;
+    color:black;
+    text-align:center;
+    font-size:5vw;
 }

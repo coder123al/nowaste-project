@@ -72,6 +72,67 @@ body{
     width: 100%;
     z-index: 1;
   }
+.burger{
+    display:none;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+.burger div{
+    width:25px;
+    height:2px;
+    margin:5px;
+    background-color:black;
+    transition: all 0.3s ease;
+}
+
+.one{
+    margin-right:20%;
+}
+
+@media screen and (max-width:768px){
+
+    body{
+        overflow-x: hidden;
+    }
+    .nav-links{
+        position:absolute;
+        right:0;
+        height:100vh;
+        background-color: white;
+        top:12vh;
+        display:flex;
+        flex-direction:column;
+        z-index: 1;
+        width:50vw;
+        justify-content: space-around;
+        align-items: center;
+        transform:translateX(100%);
+        transition:ease-in .5s;
+    }
+
+    .one{
+        margin-right:0;
+    }
+
+    .burger{
+        display:block;
+    }
+}
+.nav-active{
+    transform:translateX(0%);
+}
+
+.toggle .line1{
+    transform: translate(-2px,4px)rotate(-45deg);
+}
+.toggle .line2{
+    opacity:0;
+}
+.toggle .line3{
+    transform: translate(-2px,-9.5px)rotate(45deg);
+}
+
 
   footer{
     background-color: #363333;
